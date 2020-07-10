@@ -1,4 +1,4 @@
--- SCAAM Amalgarmin Mod v1.1.3
+-- SCAAM Amalgarmin Mod v1.1.4
 -- Created by Cuartas
 
 -- Loading all the custom entities
