@@ -1,0 +1,21 @@
+<Material MtlFlags="524544" vertModifType="0">
+ <SubMaterials>
+  <Material Name="device" MtlFlags="524416" Shader="Illum" GenMask="60000000" StringGenMask="%SPECULAR_MAP%SUBSURFACE_SCATTERING" SurfaceType="mat_plastic" MatTemplate="" Diffuse="0.06124606,0.06124606,0.06124606" Specular="1,1,1" Opacity="1" Shininess="50" vertModifType="0" LayerAct="1">
+   <Textures>
+    <Texture Map="Diffuse" File="objects/scaamcuartas/amalgarmin/amalgarmin_diff.tif"/>
+    <Texture Map="Specular" File="objects/scaamcuartas/amalgarmin/amalgarmin_diff.tif"/>
+   </Textures>
+   <PublicParams EmittanceMapGamma="1" SSSIndex="0" IndirectColor="0.25,0.25,0.25"/>
+  </Material>
+  <Material Name="screen" MtlFlags="526468" Shader="Monitor" GenMask="0" StringGenMask="" SurfaceType="mat_glass_unbreakable" MatTemplate="" Diffuse="1,1,1" Specular="0,0,0" Emittance="1,1,1,9" Opacity="1" Shininess="255" vertModifType="0" LayerAct="1">
+   <Textures>
+    <Texture Map="Diffuse" File="mod_SCAAMAmalgarminUI@1.ui" TexType="5"/>
+   </Textures>
+   <PublicParams GrainAmount="0.1" DeformAmount="0" DeformTillingY="1" GrainTilling="1" ResolutionX="512" ResolutionY="512" InterlacingTilling="0.25" Contrast="1" Saturation="1" DeformTillingX="1" GrainSaturation="0.1" FresnelScale="1" InterlacingAmount="0" VSyncFreq="16" PixelVisibility="0.1" FresnelBias="1" ChromaShift="0" ViewAngle="180" DeformFreq="0"/>
+  </Material>
+  <Material Name="proxy" MtlFlags="525440" Shader="Nodraw" GenMask="0" StringGenMask="" SurfaceType="mat_plastic" MatTemplate="" Diffuse="0.80000001,0.80000001,0.80000001" Specular="1,1,1" Opacity="1" Shininess="50" vertModifType="0" LayerAct="1">
+   <Textures />
+  </Material>
+ </SubMaterials>
+ <PublicParams EmittanceMapGamma="1" SSSIndex="0" IndirectColor="0.25,0.25,0.25"/>
+</Material>

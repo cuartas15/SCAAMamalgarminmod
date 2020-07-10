@@ -1,0 +1,25 @@
+<UIElements name="mod_SCAAMAmalgarminUI">
+  <UIElement name="mod_SCAAMAmalgarminUI" mouseevents="1" keyevents="0" cursor="0" controller_input="0" render_lockless="1">
+    <GFx file="SCAAMAmalgarmin/SCAAMAmalgarmin.gfx" layer="1">
+      <Constraints>
+        <Align mode="dynamic" valign="center" halign="center" scale="1" max="0" />
+      </Constraints>
+    </GFx>
+    <functions>
+      <function name="SetMapInfo" funcname="SetMapInfo">
+        <param name="mapName" desc="" type="String" />
+        <param name="mapScale" desc="" type="String" />
+      </function>
+      <function name="UpdatePlayerPosAndRotation" funcname="UpdatePlayerPosAndRotation">
+        <param name="playerData" desc="" type="String" />
+      </function>
+      <function name="ToggleMap" funcname="ToggleMap"></function>
+    </functions>
+    <events>
+      <event name="onGetMapInfo" fscommand="getMapInfo" desc="To retrieve the map data"/>
+    </events>
+    <variables />
+    <Arrays />
+    <movieclips />
+  </UIElement>
+</UIElements>
