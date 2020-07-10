@@ -1,4 +1,4 @@
--- SCAAM Amalgarmin Mod v1.1.1
+-- SCAAM Amalgarmin Mod v1.1.3
 -- Created by Cuartas
 
 -- Loading all the custom entities
@@ -110,7 +110,25 @@ end
 -- SCAAMGPSChangeMode
 -- Changes the GPS mode from zoomed to normal or viceversa
 function SCAAMGPSChangeMode(mode)
-    UIAction.CallFunction('mod_SCAAMAmalgarminUI', 1, 'ToggleMap');
+    if (ActionMapManager.IsFilterEnabled('only_ui') == false and ActionMapManager.IsFilterEnabled('inventory') == false) then
+        local player = System.GetEntity(g_localActorId);
+
+        if (player.SCAAMGPSInHand == true) then
+            UIAction.CallFunction('mod_SCAAMAmalgarminUI', 1, 'ToggleMap');
+        end
+    end
+end
+
+-- SCAAMGPSChangeFrame
+-- Changes frame in the UI
+function SCAAMGPSChangeFrame(mode)
+    if (ActionMapManager.IsFilterEnabled('only_ui') == false and ActionMapManager.IsFilterEnabled('inventory') == false) then
+        local player = System.GetEntity(g_localActorId);
+
+        if (player.SCAAMGPSInHand == true) then
+            UIAction.CallFunction('mod_SCAAMAmalgarminUI', 1, 'SwitchToFrame');
+        end
+    end
 end
 
 -- SCAAMGPSRestartGPS

@@ -13,6 +13,8 @@ local SCAAMGPSCustomPlayer = {
                 -- Assigns the battle royale custom keys
                 System.AddCCommand('SCAAMGPSMode', 'SCAAMGPSChangeMode(%1)', '');
                 System.AddKeyBind('end', 'SCAAMGPSMode mode');
+                System.AddKeyBind('end', 'SCAAMGPSMode mode');
+	            System.AddKeyBind('mouse1', 'SCAAMGPSFrame mode');
 
                 -- Sets the custom client variables
                 self.SCAAMGPSObtainedMapData = false;
@@ -27,7 +29,7 @@ local SCAAMGPSCustomPlayer = {
     Expose = {
         ClientMethods = {
             SCAAMGPSInit = { RELIABLE_ORDERED, POST_ATTACH },
-			SCAAMGPSInitThePlayer = { RELIABLE_ORDERED, POST_ATTACH }
+            SCAAMGPSInitThePlayer = { RELIABLE_ORDERED, POST_ATTACH }
         },
         ServerMethods = {},
         ServerProperties = {}
