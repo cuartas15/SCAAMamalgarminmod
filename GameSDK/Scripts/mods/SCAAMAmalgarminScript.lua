@@ -1,4 +1,4 @@
--- Calling OnInitAllLoaded function to register the Battle royale config on level load
+-- Calling OnInitAllLoaded function to register the GPS config on level load
 RegisterCallback(_G,
     'OnInitAllLoaded',
     nil,
