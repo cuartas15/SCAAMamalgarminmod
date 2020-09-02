@@ -20,7 +20,7 @@ local SCAAMGPSCustomPlayer = {
                 self.SCAAMGPSObtainedMapData = false;
                 self.SCAAMGPSInHand = false;
 
-                SCAAMGPSStartPlayerGeneralUpdate(1000);
+                SCAAMGPSStartPlayerGeneralUpdate(5000);
             end
         },
         Server = {
@@ -28,8 +28,8 @@ local SCAAMGPSCustomPlayer = {
     },
     Expose = {
         ClientMethods = {
-            SCAAMGPSInit = { RELIABLE_ORDERED, POST_ATTACH },
-            SCAAMGPSInitThePlayer = { RELIABLE_ORDERED, POST_ATTACH }
+            SCAAMGPSInit = { RELIABLE_UNORDERED, PRE_ATTACH },
+            SCAAMGPSInitThePlayer = { RELIABLE_UNORDERED, PRE_ATTACH }
         },
         ServerMethods = {},
         ServerProperties = {}

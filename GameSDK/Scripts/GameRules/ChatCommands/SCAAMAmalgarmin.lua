@@ -1,8 +1,8 @@
--- SCAAM Amalgarmin Mod v1.1.5
+-- SCAAM Amalgarmin Mod v1.1.6
 -- Created by Cuartas
 
--- Loading all the custom entities
-Script.LoadScript('Scripts/Entities/SCAAMCuartas/SCAAMAmalgarmin.lua');
+-- The JSON object to process JSON data
+SCAAMGPSJSON = nil;
 
 -- Validating if Miscreated:RevivePlayer is set
 if not (Miscreated.RevivePlayer) then
@@ -26,6 +26,10 @@ SCAAMGPSUIFunctions = {};
 -- SCAAMGPSUIFunctions:UpdatePlayerPosAndRotationGame
 -- Updates the player indicator position and rotation on the map game
 function SCAAMGPSUIFunctions:UpdatePlayerPosAndRotationGame(playerData)
+    if (not SCAAMGPSJSON) then
+        SCAAMGPSJSON = require('JSON');
+    end
+
     UIAction.CallFunction('mod_SCAAMAmalgarminUI', 1, 'UpdatePlayerPosAndRotation', SCAAMGPSJSON.stringify(playerData));
 end
 
@@ -65,7 +69,7 @@ end
 function SCAAMGPSPlayerGeneralUpdate(dummyVar)
     local player = System.GetEntity(g_localActorId);
     local gps = player.inventory:GetCurrentItem();
-    local timer = 10;
+    local timer = 1000;
 
     if (gps) then
         if (gps.weapon and gps.class == 'SCAAMAmalgarmin') then
@@ -82,19 +86,19 @@ function SCAAMGPSPlayerGeneralUpdate(dummyVar)
                 Rotation = playerAngles.z * 180/g_Pi
             };
 
+            timer = 10;
+
             SCAAMGPSUIFunctions:UpdatePlayerPosAndRotationGame(playerData);
         else
             if (player.SCAAMGPSInHand == true) then
                 UIAction.ReloadElement('mod_SCAAMAmalgarminUI', 1);
                 player.SCAAMGPSInHand = false;
-                timer = 1000;
             end
         end
     else
         if (player.SCAAMGPSInHand == true) then
             UIAction.ReloadElement('mod_SCAAMAmalgarminUI', 1);
             player.SCAAMGPSInHand = false;
-            timer = 1000;
         end
     end
     
@@ -145,6 +149,7 @@ end
 RegisterCallbackReturnAware(
     Miscreated,
     'RevivePlayer',
+    nil,
     function (self, ret, playerId)
         local player = System.GetEntity(playerId);
 
@@ -159,6 +164,5 @@ RegisterCallbackReturnAware(
         end
 
         return ret;
-    end,
-    nil
+    end
 );
