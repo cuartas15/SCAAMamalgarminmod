@@ -1,4 +1,4 @@
--- SCAAM Amalgarmin Mod v1.1.6
+-- SCAAM Amalgarmin Mod v1.1.7
 -- Created by Cuartas
 
 -- The JSON object to process JSON data
@@ -68,8 +68,8 @@ end
 -- Updates the player position in the gps
 function SCAAMGPSPlayerGeneralUpdate(dummyVar)
     local player = System.GetEntity(g_localActorId);
-    local gps = player.inventory:GetCurrentItem();
     local timer = 1000;
+    local gps = player.inventory:GetCurrentItem();
 
     if (gps) then
         if (gps.weapon and gps.class == 'SCAAMAmalgarmin') then
@@ -149,20 +149,20 @@ end
 RegisterCallbackReturnAware(
     Miscreated,
     'RevivePlayer',
-    nil,
     function (self, ret, playerId)
         local player = System.GetEntity(playerId);
 
         if (player and player.player) then
 
-            -- Assign custom GPS keybinds to players
-            local playerChannel = player.actor:GetChannel();
-            player.onClient:SCAAMGPSInitThePlayer(playerChannel);
-
             -- Inits the custom UI support for players
+            local playerChannel = player.actor:GetChannel();
             player.onClient:SCAAMGPSInit(playerChannel);
+
+            -- Assign custom GPS keybinds to players
+            -- player.onClient:SCAAMGPSInitThePlayer(playerChannel);
         end
 
         return ret;
-    end
+    end,
+    nil
 );
