@@ -1,4 +1,4 @@
--- SCAAM Amalgarmin Mod v1.1.7
+-- SCAAM Amalgarmin Mod v1.1.8
 -- Created by Cuartas
 
 -- The JSON object to process JSON data
@@ -8,6 +8,15 @@ SCAAMGPSJSON = nil;
 if not (Miscreated.RevivePlayer) then
     Miscreated.RevivePlayer = function (self, playerId)
         Log('SCAAMAmalgarmin >> Setting a generic Miscreated:RevivePlayer to make it exist');
+    end
+end
+
+-- SCAAMGPSPreInitModules
+-- Manage UI reload stuff
+function SCAAMGPSPreInitModules()
+    if (not CryAction.IsServer()) then
+        Log('SCAAMAmalgarmin >> Called client UI init from not IsServer');
+        ReloadModUIOnlyOnce();
     end
 end
 
@@ -157,9 +166,6 @@ RegisterCallbackReturnAware(
             -- Inits the custom UI support for players
             local playerChannel = player.actor:GetChannel();
             player.onClient:SCAAMGPSInit(playerChannel);
-
-            -- Assign custom GPS keybinds to players
-            -- player.onClient:SCAAMGPSInitThePlayer(playerChannel);
         end
 
         return ret;
