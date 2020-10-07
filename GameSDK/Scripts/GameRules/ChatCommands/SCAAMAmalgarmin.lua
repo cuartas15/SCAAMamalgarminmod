@@ -1,4 +1,4 @@
--- SCAAM Amalgarmin Mod v1.1.8
+-- SCAAM Amalgarmin Mod v1.1.9
 -- Created by Cuartas
 
 -- The JSON object to process JSON data
@@ -164,8 +164,15 @@ RegisterCallbackReturnAware(
         if (player and player.player) then
 
             -- Inits the custom UI support for players
-            local playerChannel = player.actor:GetChannel();
-            player.onClient:SCAAMGPSInit(playerChannel);
+            mSendEvent(
+                player.id,
+                {
+                    Type = 'SCAAMGPSInit',
+                    Data = {dummyData = ''}
+                },
+                false,
+                false
+            );
         end
 
         return ret;
