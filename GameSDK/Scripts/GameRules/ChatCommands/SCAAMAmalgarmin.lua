@@ -1,4 +1,4 @@
--- SCAAM Amalgarmin Mod v1.1.9
+-- SCAAM Amalgarmin Mod v1.2.0
 -- Created by Cuartas
 
 -- The JSON object to process JSON data
